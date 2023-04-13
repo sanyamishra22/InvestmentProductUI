@@ -4,27 +4,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../../../theme/Colors';
 
 type RootScreenProps = {
-  useSafeArea?: boolean;
-  backgroundColor?: string;
-  statusBarColor?: string;
-  containerStyle?: object;
-  barStyle?: StatusBarStyle;
-  statusBarStyle?: object;
-  headerComponent?: () => JSX.Element;
   children: JSX.Element;
-  scrollEnabled: boolean;
-  refreshControl?: () => JSX.Element;
-  right?: number;
-  left?: number;
-  contentContainerStyle?: object;
 };
 
-const RootScreen: React.FC<RootScreenProps> = ({
-  headerComponent,
-  children,
-  statusBarStyle,
-  contentContainerStyle,
-}) => {
+const RootScreen: React.FC<RootScreenProps> = ({children}) => {
   return (
     <View style={styles.headerContainer}>
       <LinearGradient

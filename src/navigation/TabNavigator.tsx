@@ -37,7 +37,12 @@ const TabNavigator = () => {
           tabBarLabel: 'الرئيسية',
           headerShown: false,
           tabBarIcon: ({focused}) => (
-            <Image source={MORE} style={styles.image} resizeMode={'cover'} />
+            <Image
+              source={MORE}
+              style={styles.image}
+              resizeMode={'cover'}
+              tintColor={focused ? COLORS.PRIMARY : COLORS.BLACK}
+            />
           ),
         }}
       />
@@ -54,6 +59,7 @@ const TabNavigator = () => {
               source={ADMINSTRATOR}
               style={styles.image}
               resizeMode={'cover'}
+              tintColor={focused ? COLORS.PRIMARY : COLORS.BLACK}
             />
           ),
         }}
@@ -69,6 +75,7 @@ const TabNavigator = () => {
               source={EXPLOITATIVE}
               style={styles.image}
               resizeMode={'cover'}
+              tintColor={focused ? COLORS.PRIMARY : COLORS.BLACK}
             />
           ),
         }}
@@ -80,7 +87,12 @@ const TabNavigator = () => {
           tabBarLabel: 'الرئيسية',
           headerShown: false,
           tabBarIcon: ({focused}) => (
-            <Image source={MAIN} style={styles.image} resizeMode={'cover'} />
+            <Image
+              source={MAIN}
+              style={styles.image}
+              resizeMode={'cover'}
+              tintColor={focused ? COLORS.PRIMARY : COLORS.BLACK}
+            />
           ),
         }}
       />

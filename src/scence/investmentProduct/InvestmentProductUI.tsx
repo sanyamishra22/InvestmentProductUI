@@ -7,7 +7,7 @@ import {
   Pressable,
   FlatList,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {COLORS} from '../../theme/Colors';
 import {LANGUAGE} from '../../utlis/constants/LanguageConstant';
 import {
@@ -18,16 +18,29 @@ import {
 import {hp, wp} from '../../utlis/helper';
 import Card from '../../components/molecule/cards/Card';
 import * as Progress from 'react-native-progress';
-import LIST from './List';
+
 import StandardButton from '../../components/atoms/button/StandardButton';
 import RootScreen from '../../components/molecule/rootScreen/RootScreen';
+import {useAppSelector} from '../../store/storeHooks';
+import {useDispatch} from 'react-redux';
+import {FETCH_INVESTMENT_PRODUCT} from './redux/InvestmentAction';
+
 const InvestmentProductUI = () => {
+  const dispatch = useDispatch();
   const _handleButtonNext = () => {
     console.log('navigate to next screen');
   };
+  const {ListOfInvestments} = useAppSelector(({Investment}) => Investment);
+
+  useEffect(() => {
+    //we can dispatch action from here
+    const payload = {
+      //we can write the required payload here
+    };
+    dispatch({type: FETCH_INVESTMENT_PRODUCT, payload});
+  }, []);
 
   const _renderFooter = () => {
-    console.log('I am footer');
     return (
       <View>
         <StandardButton
@@ -60,7 +73,7 @@ const InvestmentProductUI = () => {
         <Card containerStyle={styles.investmentMainContainer}>
           <View style={styles.investmentCardContainer}>
             <View style={styles.moneyContainer}>
-              <Text style={styles.moneyText}> 1 {LANGUAGE.MONEY}</Text>
+              <Text style={styles.moneyText}>{LANGUAGE.MONEY}</Text>
             </View>
             <View style={styles.investmentDetailsContainer}>
               <Text style={styles.instrumentText}>{LANGUAGE.INSTRUMENT}</Text>
@@ -146,10 +159,10 @@ const InvestmentProductUI = () => {
     );
   };
   return (
-    <RootScreen style={styles.mainContainer}>
+    <RootScreen contentContainerStyle={styles.mainContainer}>
       <View>
         <FlatList
-          data={LIST}
+          data={ListOfInvestments}
           renderItem={_renderItems}
           keyExtractor={item => item.id}
           ListHeaderComponent={_renderHeader}

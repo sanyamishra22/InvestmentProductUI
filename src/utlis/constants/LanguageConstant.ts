@@ -1,7 +1,7 @@
 export const LANGUAGE = {
   InvestmentDetails: 'تفاصيل الاستثمار',
   IndividualInvester: 'مستثمر فردي',
-  MONEY: 'رقم الاصدار',
+  MONEY: '1 رقم الاصدار',
   INSTRUMENT: 'صكوك 100-2009',
   fetchChapterInvestment: 'فتح باب الاستثمار: 20/03/2023',
   urbonDistritor: 'توزيع شهري',
